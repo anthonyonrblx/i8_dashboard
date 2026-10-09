@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>i8 Control Panel</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#080b14;color:#f3f5ff;font-family:Arial,sans-serif}
+header{padding:22px 7%;border-bottom:1px solid #242a3c;
+display:flex;justify-content:space-between;align-items:center}
+.logo{font-size:28px;font-weight:900;letter-spacing:3px;color:#76a9ff}
+.tag{color:#aab2c8;font-size:13px}
+main{max-width:1100px;margin:35px auto;padding:0 20px}
+h1{font-size:32px;margin-bottom:8px}
+.muted{color:#9da8c0}
+.notice{padding:14px;background:#282113;border:1px solid #66502a;
+border-radius:10px;color:#ffd88b;margin:22px 0}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:18px}
+.card{background:#111625;border:1px solid #242d42;border-radius:14px;padding:22px}
+.card h2{font-size:18px;margin-top:0}
+label{display:block;font-size:13px;color:#b9c3d9;margin:14px 0 6px}
+input,textarea,select{width:100%;padding:12px;border-radius:8px;
+border:1px solid #303b53;background:#090e1b;color:white;font:inherit}
+textarea{min-height:85px;resize:vertical}
+button{width:100%;margin-top:15px;padding:12px;border:0;border-radius:8px;
+background:#5689ff;color:white;font-weight:bold;cursor:pointer}
+button:hover{background:#3972ed}
+button.secondary{background:#202a40}
+footer{text-align:center;padding:35px;color:#7e8aa4;font-size:12px}
+</style>
+</head>
+<body>
+<header>
+  <div class="logo">i8 <span style="color:white">CONTROL</span></div>
+  <div class="tag">DISCORD DASHBOARD</div>
+</header>
+
+<main>
+  <h1>Control Panel</h1>
+  <p class="muted">Manage your i8 Discord bot from one place.</p>
+
+  <div class="notice">
+    DEMO MODE — This page is not connected to your bot yet.
+    Actions and Discord login need a secure backend.
+  </div>
+
+  <div class="grid">
+    <section class="card">
+      <h2>Discord connection</h2>
+      <p class="muted">Connect your Discord account through a secure backend.</p>
+      <button onclick="demo('Discord login is not configured yet.')">
+        Login with Discord
+      </button>
+    </section>
+
+    <section class="card">
+      <h2>Send announcement</h2>
+      <label for="server">Server ID</label>
+      <input id="server" placeholder="Discord server ID">
+      <label for="channel">Channel ID</label>
+      <input id="channel" placeholder="Announcement channel ID">
+      <label for="message">Message</label>
+      <textarea id="message" placeholder="Write your announcement..."></textarea>
+      <button onclick="demo('Sending messages requires the bot backend.')">
+        Send message
+      </button>
+    </section>
+
+    <section class="card">
+      <h2>Moderation</h2>
+      <label for="target">Member ID</label>
+      <input id="target" placeholder="Discord member ID">
+      <label for="reason">Reason</label>
+      <input id="reason" placeholder="Reason for moderation">
+      <label for="action">Action</label>
+      <select id="action">
+        <option value="kick">Kick member</option>
+        <option value="ban">Ban member</option>
+        <option value="timeout">Timeout member</option>
+      </select>
+      <button onclick="demo('Moderation requires a secure backend and bot permissions.')">
+        Run moderation action
+      </button>
+    </section>
+
+    <section class="card">
+      <h2>Bot status</h2>
+      <p>Website: <strong style="color:#76a9ff">Online</strong></p>
+      <p>Bot connection: <strong style="color:#ffd88b">Not connected</strong></p>
+      <p class="muted">The website being online does not mean the bot is online.</p>
+      <button class="secondary" onclick="demo('Live status requires a backend connection.')">
+        Refresh bot status
+      </button>
+    </section>
+  </div>
+</main>
+
+<footer>i8 Control Panel · Front-end demo</footer>
+
+<script>
+function demo(message) {
+  alert(message);
+}
+</script>
+</body>
+</html>
